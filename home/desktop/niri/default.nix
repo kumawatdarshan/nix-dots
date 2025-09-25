@@ -1,15 +1,10 @@
-{self, ...}: let
-  servicesPath = "${self}/home/desktop/services";
-  services = map (service: "${servicesPath}/${service}") [
-    "hyprlock"
-    #mako"
-    # "swayidle"
-    "waybar"
-    "walker"
-    "swaybg"
-    "swaync"
-    "xwayland-satellite"
-    "poweralertd"
+{...}: let
+  services = [
+    ./../common/waybar
+    ./../common/swaybg
+    ./../common/swaync
+    # ./../common/xwayland-satellite
+    ./../common/poweralertd
   ];
 in {
   imports = services;

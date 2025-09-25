@@ -9,7 +9,6 @@
   hardware.nvidia = {
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
-
     modesetting.enable = true;
     nvidiaSettings = true;
     dynamicBoost.enable = true;
@@ -20,7 +19,7 @@
     };
 
     prime = {
-      sync.enable = false;
+      # sync.enable = true;
       offload = {
         enable = true;
         enableOffloadCmd = true;

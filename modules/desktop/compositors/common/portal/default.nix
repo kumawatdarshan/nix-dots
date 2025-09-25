@@ -1,16 +1,4 @@
-{
-  self,
-  pkgs,
-  ...
-}: let
-  servicesPath = "${self}/modules/desktop/services";
-  services = map (service: "${servicesPath}/${service}") [
-    "brightness.nix"
-    "hyprlock"
-  ];
-in {
-  imports = services;
-
+{pkgs, ...}: {
   xdg = {
     portal = {
       enable = true;
@@ -26,8 +14,5 @@ in {
         xdg-desktop-portal-gnome
       ];
     };
-  };
-  programs.niri = {
-    enable = true;
   };
 }

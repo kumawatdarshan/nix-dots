@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # ./tools/kvm
+    ./tools/kvm
     ./tools/docker
 
     ./adb

@@ -1,20 +1,33 @@
 {
-  inputs,
   config,
   pkgs,
   ...
 }: {
   imports = [
-    inputs.stylix.nixosModules.stylix
     ./../common/base
 
     ./home.nix
+    ./kernel.nix
     ./hardware-configuration.nix
 
     ./../common/intel
     ./../common/nvidia
     ./../../modules
   ];
+
+  environment.systemPackages = [
+    pkgs.unstable.lact
+  ];
+
+  systemd.services.lact = {
+    description = "LACT";
+    after = ["multi-user.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.unstable.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
 
   services.openssh.enable = true;
   services.power-profiles-daemon.enable = false;
@@ -29,9 +42,6 @@
   services.tlp = {
     enable = true;
     settings = {
-      RUNTIME_PM_ENABLE = "01:00.0";
-      RUNTIME_PM_ON_AC = "auto";
-
       # disable cpu module
       CPU_SCALING_GOVERNOR_ON_AC = "";
       CPU_SCALING_GOVERNOR_ON_BAT = "";
@@ -47,6 +57,9 @@
       CPU_HWP_DYN_BOOST_ON_BAT = "";
       SCHED_POWERSAVE_ON_AC = "";
       SCHED_POWERSAVE_ON_BAT = "";
+
+      START_CHARGE_THRESH_BAT0 = 10;
+      STOP_CHARGE_THRESH_BAT0 = 85;
     };
   };
   # i mostly use tldr
@@ -74,27 +87,6 @@
       "pci/devices/0000:04:00.1/ata2" # FCH SATA Controller, port 2
       "usb/devices/1-3" # USB camera
     ];
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    extraModulePackages = with config.boot.kernelPackages; [lenovo-legion-module];
-    kernelModules = [
-      "ntsync"
-      "thinkpad_acpi"
-      "v4l2loopback"
-    ];
-    extraModprobeConfig = ''
-      options thinkpad_acpi fan_control=1
-      options v4l2loopback devices=1 video_nr=0 card_label="WebCam"
-    '';
-  };
-
-  services.scx = {
-    enable = true;
-    scheduler = "scx_rusty";
-  };
 
   users = {
     users.${config.username} = {

@@ -1,16 +1,31 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
-    ./environments/niri
-    ./environments/kde
-    ./apps
+    ./compositors/niri
+    ./compositors/kde
+
+    ./compositors/common/stylix
+
+    ./apps/browsers
+    ./apps/documents
+    ./apps/media
+    ./apps/messaging
+
+    ./apps/misc/kdeconnect
+    ./apps/misc/tofi
+
     ./fonts
-    ./services
+
+    ./services/keyd
+    ./services/goldwarden
   ];
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
     cliphist
-    tofi
     hyprpicker
   ];
 }

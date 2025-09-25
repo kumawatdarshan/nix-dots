@@ -4,6 +4,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    logseq
     onlyoffice-bin
     zathura
     kdePackages.okular

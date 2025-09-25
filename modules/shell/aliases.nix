@@ -34,5 +34,6 @@ in {
       heroic = "heroic --enable-features=WaylandWindowDecorations --enable-features=UseOzonePlatform --ozone-platform=wayland";
       brave = "brave --enable-features=TouchpadOverscrollHistoryNavigation,UseOzonePlatform --ozone-platform=wayland";
       vivaldi = "vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet6";
+      aria = "aria2c --file-allocation=falloc";
     };
 }

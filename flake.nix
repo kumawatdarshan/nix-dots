@@ -5,23 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # I can do this because i am only taking the cachyos kernel from chaotic. it might break if i do anythig more.
-    # it will lower the time to evaluate inputs
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs = {
-        home-manager.follows = "";
-        rust-overlay.follows = "";
-        jovian.follows = "";
-        flake-schemas.follows = "";
-      };
-    };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tofi.url = "github:darshanCommits/tofi";
     stylix.url = "github:danth/stylix/release-25.05";
 
     fenix = {
@@ -48,6 +37,7 @@
   outputs = {
     self,
     nixpkgs,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -56,9 +46,11 @@
     mkNixOsConfig = host: {
       inherit system;
       specialArgs = {
-        inherit inputs self;
+        inherit inputs self system;
       };
       modules = [
+        stylix.nixosModules.stylix
+
         ./lib
         ./hosts/${host}
         {

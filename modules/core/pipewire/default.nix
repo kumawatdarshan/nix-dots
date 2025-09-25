@@ -17,36 +17,16 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     jack.enable = true;
+
     wireplumber.enable = true;
 
     extraConfig = {
-      pipewire = {
-        "context.modules" = [
-          {
-            name = "libpipewire-module-null-audio-sink";
-            args = {
-              node.name = "VirtualSink";
-              node.description = "Virtual Sink for AudioRelay";
-            };
-          }
-        ];
-        "90-networking" = {
-          "context.modules" = [
-            {
-              name = "libpipewire-module-zeroconf-discover";
-              args = {
-                "pulse.latency" = 500;
-              };
-            }
-          ];
-        };
-        "92-low-latency" = {
-          "context.properties" = {
-            "default.clock.rate" = clockRate;
-            "default.clock.quantum" = quantum;
-            "default.clock.min-quantum" = minQuantum;
-            "default.clock.max-quantum" = maxQuantum;
-          };
+      pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = clockRate;
+          "default.clock.quantum" = quantum;
+          "default.clock.min-quantum" = minQuantum;
+          "default.clock.max-quantum" = maxQuantum;
         };
       };
 
