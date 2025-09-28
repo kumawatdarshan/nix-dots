@@ -1,7 +1,6 @@
 # YOU MUST FIRST DEFINE THE CONFIG OPTIONS IN THE ./types.nix
-{config, ...}: let
+{...}: let
   username = "greeed";
-  assets = ./../../assets;
 in {
   config = {
     wallpaper = ./../../assets/images/goatv3.jpg;
@@ -16,7 +15,7 @@ in {
     localDomain = "local";
     localhost = "0.0.0.0";
 
-    ghUserName = "darshanCommits";
+    ghUserName = "kumawatdarshan";
     email = "kumawatdarshan.1304@gmail.com";
   };
 }

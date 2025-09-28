@@ -2,10 +2,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./cli
-    ./development
-    ./desktop/common/stylix
-    ./media
+    ./config
+    ./stylix
     ./../lib
   ];
 

@@ -1,14 +1,13 @@
 {pkgs, ...}: {
-  imports = [
-    ./scriptOpts.nix
-  ];
   programs.mpv.scripts = with pkgs.mpvScripts; [
     mpris
-    uosc
+    modernz
     thumbfast
     autosubsync-mpv
     sponsorblock
   ];
+
+  home.file.".config/mpv/scripts/skip-intro.lua".source = ./skip-intro.lua;
 
   programs.mpv.enable = true;
   programs.mpv.config = {
@@ -28,8 +27,22 @@
     sub-shadow-color = "#000000";
     sub-shadow-offset = 2;
 
-    hwdec = "vaapi";
+    hwdec = "auto";
     vo = "gpu";
     gpu-context = "wayland";
+  };
+
+  programs.mpv.scriptOpts = {
+    uosc = {
+      timeline_size = 25;
+      timeline_persistency = "paused,audio";
+      top_bar = "never";
+      refine = "text_width";
+    };
+    thumbfast = {
+      spawn_first = true;
+      network = true;
+      hwdec = false;
+    };
   };
 }

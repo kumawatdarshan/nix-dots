@@ -1,0 +1,92 @@
+[[language]]
+auto-format = true
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+name = "css"
+
+[[language]]
+name = "typescript"
+roots = ["deno.json", "deno.jsonc", "package.json"]
+auto-format = true
+language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome"]
+
+[[language]]
+name = "javascript"
+roots = ["deno.json", "deno.jsonc", "package.json"]
+auto-format = true
+language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome"]
+
+[[language]]
+auto-format = true
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet"]
+name = "html"
+
+[[language]]
+auto-format = true
+language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome", "tailwindcss-ls", "emmet"]
+name = "tsx"
+
+[[language]]
+auto-format = true
+language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome", "tailwindcss-ls", "emmet"]
+name = "jsx"
+
+[[language]]
+language-servers = [{except-features = ["format"], name = "vscode-json-language-server"}, "biome"]
+name = "json"
+
+[[language]]
+auto-format = true
+name = "nix"
+
+[[language.language-servers]]
+name = "nixd"
+
+[language.formatter]
+command = "/nix/store/nm8j5b2ljgsd97idxh472dknan0g3rc5-alejandra-4.0.0/bin/alejandra"
+
+[[language]]
+auto-format = true
+name = "rust"
+
+[language-server.biome]
+args = ["lsp-proxy"]
+command = "biome"
+
+[language-server.emmet]
+args = ["--stdio"]
+command = "emmet-language-server"
+
+[language-server.nixd]
+command = "nixd"
+
+[language-server.nixd.formatting]
+command = ["alejandra"]
+
+[language-server.nixd.nix.flake]
+autoArchive = true
+autoEvalInputs = true
+
+[language-server.nixd.nixpkgs]
+expr = "import (builtins.getFlake \"/home/greeed/dotfiles\").inputs.nixpkgs { }"
+
+[language-server.nixd.options.nixos]
+expr = "(builtins.getFlake \"/home/greeed/dotfiles\").nixosConfigurations.greeed.options"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.shellcheck]
+args = ["-"]
+command = "shellcheck"
+
+[language-server.tailwindcss-ls]
+args = ["--stdio"]
+command = "tailwindcss-language-server"
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config.deno.enable = true

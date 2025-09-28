@@ -16,8 +16,5 @@
 
     # System boot utilities
     systemdUkify # systemd boot utilities
-
-    # Calculator (GUI version for system scope)
-    qalculate-qt # advanced calculator
   ];
 }

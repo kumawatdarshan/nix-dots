@@ -1,9 +1,19 @@
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./git
+    ./mpv
     ./foot
     ./helix
-    # ./starship
+  ];
+  home.file.".config/starship.toml".source = ./starship.toml;
+
+  home.packages = with pkgs; [
+    inputs.helix-driver.packages.${pkgs.system}.helix
+    foot
   ];
 
   programs.zoxide = {
