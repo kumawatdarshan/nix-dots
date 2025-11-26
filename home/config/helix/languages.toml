@@ -1,70 +1,26 @@
-[[language]]
-auto-format = true
-language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
-name = "css"
-
-[[language]]
-name = "typescript"
-roots = ["deno.json", "deno.jsonc", "package.json"]
-auto-format = true
-language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome"]
-
-[[language]]
-name = "javascript"
-roots = ["deno.json", "deno.jsonc", "package.json"]
-auto-format = true
-language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome"]
-
-[[language]]
-auto-format = true
-language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet"]
-name = "html"
-
-[[language]]
-auto-format = true
-language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome", "tailwindcss-ls", "emmet"]
-name = "tsx"
-
-[[language]]
-auto-format = true
-language-servers = ["deno-lsp", {except-features = ["format"], name = "typescript-language-server"}, "biome", "tailwindcss-ls", "emmet"]
-name = "jsx"
-
-[[language]]
-language-servers = [{except-features = ["format"], name = "vscode-json-language-server"}, "biome"]
-name = "json"
-
-[[language]]
-auto-format = true
-name = "nix"
-
-[[language.language-servers]]
-name = "nixd"
-
-[language.formatter]
-command = "/nix/store/nm8j5b2ljgsd97idxh472dknan0g3rc5-alejandra-4.0.0/bin/alejandra"
-
-[[language]]
-auto-format = true
-name = "rust"
+# =============================================================================
+# LANGUAGE SERVERS CONFIGURATION
+# =============================================================================
 
 [language-server.biome]
-args = ["lsp-proxy"]
 command = "biome"
+args = ["lsp-proxy"]
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config.deno.enable = true
 
 [language-server.emmet]
-args = ["--stdio"]
 command = "emmet-language-server"
+args = ["--stdio"]
 
 [language-server.nixd]
 command = "nixd"
-
-[language-server.nixd.formatting]
-command = ["alejandra"]
-
-[language-server.nixd.nix.flake]
-autoArchive = true
-autoEvalInputs = true
+config.nixpkgs.expr = "import (builtins.getFlake \"/home/greeed/dotfiles\").inputs.nixpkgs { }"
+config.options.nixos.expr = "(builtins.getFlake \"/home/greeed/dotfiles\").nixosConfigurations.greeed.options"
+config.nix.flake.autoArchive = true
+config.nix.flake.autoEvalInputs = true
 
 [language-server.nixd.nixpkgs]
 expr = "import (builtins.getFlake \"/home/greeed/dotfiles\").inputs.nixpkgs { }"
@@ -79,14 +35,84 @@ features = "all"
 command = "clippy"
 
 [language-server.shellcheck]
-args = ["-"]
 command = "shellcheck"
+args = ["-"]
 
 [language-server.tailwindcss-ls]
-args = ["--stdio"]
 command = "tailwindcss-language-server"
+args = ["--stdio"]
 
-[language-server.deno-lsp]
-command = "deno"
-args = ["lsp"]
-config.deno.enable = true
+# =============================================================================
+# LANGUAGES CONFIGURATION
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# CSS
+# -----------------------------------------------------------------------------
+[[language]]
+name = "css"
+auto-format = true
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+# -----------------------------------------------------------------------------
+# HTML
+# -----------------------------------------------------------------------------
+[[language]]
+name = "html"
+auto-format = true
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet"]
+
+# -----------------------------------------------------------------------------
+# JavaScript / TypeScript (Deno + Node.js support)
+# -----------------------------------------------------------------------------
+[[language]]
+name = "javascript"
+auto-format = true
+roots = ["deno.json", "deno.jsonc", "package.json"]
+language-servers = ["deno-lsp", "biome", {name = "typescript-language-server", except-features = ["format"]}]
+
+[[language]]
+name = "typescript"
+auto-format = true
+roots = ["deno.json", "deno.jsonc", "package.json"]
+language-servers = ["deno-lsp", "biome", {name = "typescript-language-server", except-features = ["format"]}]
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = ["deno-lsp", "biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = ["deno-lsp", "biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
+
+# -----------------------------------------------------------------------------
+# JSON
+# -----------------------------------------------------------------------------
+[[language]]
+name = "json"
+language-servers = ["biome", {name = "vscode-json-language-server", except-features = ["format"]}]
+
+# -----------------------------------------------------------------------------
+# Markdown
+# -----------------------------------------------------------------------------
+[[language]]
+name = "markdown"
+soft-wrap.enable = true
+
+# -----------------------------------------------------------------------------
+# Nix
+# -----------------------------------------------------------------------------
+[[language]]
+name = "nix"
+auto-format = true
+language-servers = ["nixd"]
+formatter = {command = "/nix/store/nm8j5b2ljgsd97idxh472dknan0g3rc5-alejandra-4.0.0/bin/alejandra", args = ["-q"]}
+
+# -----------------------------------------------------------------------------
+# Rust
+# -----------------------------------------------------------------------------
+[[language]]
+name = "rust"
+auto-format = true

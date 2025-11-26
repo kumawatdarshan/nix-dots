@@ -1,4 +1,4 @@
-theme = "glazor"
+theme = "mist"
 [editor]
 color-modes = true
 completion-trigger-len = 1
@@ -33,20 +33,10 @@ other-lines = "disable"
 display-inlay-hints = true
 display-messages = true
 
-[editor.soft-wrap]
-enable = true
-
 [editor.statusline]
 center = ["diagnostics", "workspace-diagnostics"]
 left = ["mode", "spinner", "total-line-numbers", "file-encoding"]
-right = [
-    "position",
-    "position-percentage",
-    "spacer",
-    "separator",
-    "spacer",
-    "version-control",
-]
+right = ["position", "position-percentage", "spacer", "separator", "spacer", "version-control"]
 
 [editor.word-completion]
 enable = true
@@ -65,14 +55,7 @@ home = "@<esc>ghi"
 [keys.normal]
 C-a = "@<A-a>"
 C-backspace = "@<space>w"
-C-g = [
-    ":write-all",
-    ":new",
-    ":insert-output lazygit",
-    ":buffer-close!",
-    ":redraw",
-    ":reload-all",
-]
+C-g = [":write-all", ":new", ":insert-output lazygit", ":buffer-close!", ":redraw", ":reload-all"]
 C-ret = "@[<space>k"
 H = "move_prev_sub_word_start"
 L = "move_next_sub_word_end"

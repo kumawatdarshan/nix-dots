@@ -2,44 +2,44 @@
 # -------------------
 "type" = "yellow"
 
-"constructor" = "sapphire"
+"constructor" = "teal"
 
 "constant" = "peach"
 "constant.builtin" = "peach"
-"constant.character" = "red"
+"constant.character" = "coral"
 "constant.character.escape" = "lightpink"
 
 "string" = "green"
 "string.regexp" = "peach"
-"string.special" = "blue"
+"string.special" = "teal"
 
 "comment" = {fg = "overlay1", modifiers = ["italic"]}
 
 "variable" = "text"
 "variable.parameter" = {fg = "peach", modifiers = ["italic"]}
-"variable.builtin" = "pink"
-"variable.other.member" = "red"
+"variable.builtin" = "lightpink"
+"variable.other.member" = "coral"
 
-"label" = "sapphire" # used for lifetimes
+"label" = "sapphire"
 
 "punctuation" = "overlay2"
-"punctuation.special" = "sky"
+"punctuation.special" = "mauve"
 
-"keyword" = {fg = "red"}
-"keyword.storage.modifier.ref" = "red"
+"keyword" = {fg = "mauve"}
+"keyword.storage.modifier.ref" = "mauve"
 "keyword.control.conditional" = {fg = "mauve", modifiers = ["italic"]}
 
-"operator" = "sky"
+"operator" = "mauve"
 
-"function" = "blue"
+"function" = "sapphire"
 "function.macro" = "mauve"
 
 "tag" = "mauve"
-"attribute" = "blue"
+"attribute" = "sapphire"
 
-"namespace" = {fg = "blue", modifiers = ["italic"]}
+"namespace" = {fg = "coral", modifiers = ["italic"]}
 
-"special" = "blue" # fuzzy highlight
+"special" = "teal"
 
 "markup.heading.marker" = {fg = "peach", modifiers = ["bold"]}
 "markup.heading.1" = "lavender"
@@ -47,18 +47,18 @@
 "markup.heading.3" = "green"
 "markup.heading.4" = "yellow"
 "markup.heading.5" = "lightpink"
-"markup.heading.6" = "red"
+"markup.heading.6" = "coral"
 "markup.list" = "mauve"
 "markup.bold" = {modifiers = ["bold"]}
 "markup.italic" = {modifiers = ["italic"]}
 "markup.strikethrough" = {modifiers = ["crossed_out"]}
-"markup.link.url" = {fg = "rosewater", modifiers = ["underlined"]}
-"markup.link.text" = "blue"
-"markup.raw" = "flamingo"
+"markup.link.url" = {fg = "coral", modifiers = ["underlined"]}
+"markup.link.text" = "sapphire"
+"markup.raw" = "peach"
 
 "diff.plus" = "green"
-"diff.minus" = "pink"
-"diff.delta" = "blue"
+"diff.minus" = "coral"
+"diff.delta" = "sapphire"
 
 # User Interface
 # --------------
@@ -69,13 +69,13 @@
 
 "ui.statusline" = {fg = "subtext1", bg = "base"}
 "ui.statusline.inactive" = {fg = "surface2", bg = "base"}
-"ui.statusline.normal" = {fg = "base", bg = "cyan", modifiers = ["bold"]}
+"ui.statusline.normal" = {fg = "base", bg = "sapphire", modifiers = ["bold"]}
 "ui.statusline.insert" = {fg = "base", bg = "green", modifiers = ["bold"]}
 "ui.statusline.select" = {fg = "base", bg = "mauve", modifiers = ["bold"]}
 
-"ui.popup" = {fg = "text", bg = "base"}
-"ui.window" = {fg = "crust"}
-"ui.help" = {fg = "text", bg = "base"}
+"ui.popup" = {fg = "text", bg = "surface0"}
+"ui.window" = {fg = "surface1"}
+"ui.help" = {fg = "text", bg = "surface0"}
 
 "ui.bufferline" = {fg = "subtext0", bg = "base"}
 "ui.bufferline.active" = {fg = "mauve", bg = "base", underline = {color = "mauve", style = "line"}}
@@ -89,23 +89,19 @@
 "ui.virtual" = "overlay0"
 "ui.virtual.ruler" = {bg = "surface0"}
 "ui.virtual.indent-guide" = "surface0"
-"ui.virtual.inlay-hint" = {fg = "surface2", bg = "crust"}
+"ui.virtual.inlay-hint" = {fg = "surface2", bg = "mantle"}
 
-'ui.virtual.jump-label' = {fg = "mauve", bg = "mantle", modifiers = ["bold"]} # Word-jump labels
-
-# "ui.virtual.jump.multi.first" = { fg = "#00dfff", modifiers = ["bold"] }
-# "ui.virtual.jump.multi.rest" = "#2b8db3"
-# "ui.virtual.jump.dim" = "#666666"
+'ui.virtual.jump-label' = {fg = "mauve", bg = "mantle", modifiers = ["bold"]}
 
 "ui.selection" = {bg = "surface1"}
 
 "ui.cursor" = {fg = "base", bg = "secondary_cursor", modifiers = ["bold"]}
-"ui.cursor.primary" = {fg = "base", bg = "rosewater"}
+"ui.cursor.primary" = {fg = "base", bg = "coral"}
 "ui.cursor.match" = {fg = "peach", modifiers = ["bold"]}
 
 "ui.cursor.primary.normal" = {fg = "base", bg = "lavender"}
 "ui.cursor.primary.insert" = {fg = "base", bg = "green"}
-"ui.cursor.primary.select" = {fg = "base", bg = "flamingo"}
+"ui.cursor.primary.select" = {fg = "base", bg = "lightpink"}
 
 "ui.cursor.normal" = {fg = "base", bg = "secondary_cursor_normal"}
 "ui.cursor.insert" = {fg = "base", bg = "secondary_cursor_insert"}
@@ -115,37 +111,35 @@
 
 "ui.highlight" = {bg = "surface1", modifiers = ["bold"]}
 
-"ui.menu" = {fg = "text", bg = "base"}
+"ui.menu" = {fg = "text", bg = "surface0"}
 "ui.menu.selected" = {fg = "text", bg = "surface1", modifiers = ["bold"]}
 
-"diagnostic.error" = {underline = {color = "pink", style = "curl"}}
+"diagnostic.error" = {underline = {color = "coral", style = "curl"}}
 "diagnostic.warning" = {underline = {color = "yellow", style = "curl"}}
-"diagnostic.info" = {underline = {color = "sky", style = "curl"}}
-"diagnostic.hint" = {underline = {color = "red", style = "curl"}}
+"diagnostic.info" = {underline = {color = "sapphire", style = "curl"}}
+"diagnostic.hint" = {underline = {color = "mauve", style = "curl"}}
 
-error = "pink"
+error = "coral"
 warning = "yellow"
-info = "sky"
-hint = "red"
+info = "sapphire"
+hint = "mauve"
 
 [palette]
-rosewater = "#F5E0DC"
-flamingo = "#F2CDCD"
+# Helix colors (kept the good ones)
 lightpink = "#F5C2E7"
 mauve = "#C47FD5"
-pink = "#F38BA8"
-maroon = "#FEB8C4"
 peach = "#FAB387"
 yellow = "#E5C76B"
 green = "#8CCF7E"
-red = "#E57474"
-sky = "#C47FD5"
 sapphire = "#66adff"
-blue = "#67BBB8"
+teal = "#77b1a5"      # True teal replacement
 lavender = "#B4BEFE"
-cyan = "#61AFEF"
 
-text = "#bcbcbc"
+# Dark Coral additions
+coral = "#E57474" # Your window border color!
+
+# Shared/adjusted
+text = "#C9D1D9"     # Dark Coral's base05 (slightly brighter than helix)
 subtext1 = "#BAC2DE"
 subtext0 = "#A6ADC8"
 overlay2 = "#9399B2"
@@ -155,8 +149,8 @@ surface2 = "#585B70"
 surface1 = "#45475A"
 surface0 = "#313244"
 
-base = "#0d1117"
-mantle = "#181825"
+base = "#0d1117"   # Your background
+mantle = "#161B22" # Dark Coral base01
 crust = "#11111B"
 
 cursorline = "#2A2B3C"

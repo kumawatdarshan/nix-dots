@@ -1,14 +1,14 @@
-set quiet
+set quiet := true
 
 default_host := "greeed"
 
 debug-home host=default_host:
-    journalctl -u home-manager-{{host}}.service --pager-end | bat
+    journalctl -u home-manager-{{ host }}.service --pager-end | bat
 
 shell *pkgs:
     #!/usr/bin/env fish
     set args
-    for pkg in {{pkgs}}
+    for pkg in {{ pkgs }}
         switch $pkg
             case '*#*'
                 set args $args $pkg
@@ -19,19 +19,19 @@ shell *pkgs:
     nix shell $args
 
 _rebuild command host=default_host:
-    nh os {{command}} . --hostname {{host}}
-    # nixos-rebuild {{command}} --flake .#{{host}} # would revert to this if im not happy with nh
+    nh os {{ command }} . --hostname {{ host }}
+    # nixos-rebuild {{ command }} --flake .#{{ host }} # would revert to this if im not happy with nh
 
-switch: 
+switch:
     just _rebuild switch
 
-test: 
+test:
     just _rebuild test
 
-boot: 
+boot:
     just _rebuild boot
 
-build: 
+build:
     just _rebuild build
 
 update:
@@ -48,9 +48,8 @@ cd:
         cd $dir
     end
 
-
 journal service:
-    journalctl -u {{service}} -f
+    journalctl -u {{ service }} -f
 
 service:
     #!/usr/bin/env fish

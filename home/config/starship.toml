@@ -3,7 +3,7 @@
 add_newline = true
 format = "$all"
 
-[character]  
+[character]
 format = "[󰘧](bold) "
 success_symbol = "󰘧(bold green)"
 error_symbol = "󰘧(bold red)"

@@ -3,15 +3,16 @@
   username = "greeed";
 in {
   config = {
+    inherit username;
+
     wallpaper = ./../../assets/images/goatv3.jpg;
     colorscheme = ./../../assets/colorscheme.yaml;
-    username = username;
 
     loopbackAddress = "127.0.0.1";
-    ip = "192.168.165.229";
+    ip = "192.168.0.120";
 
     homeDir = "/home/${username}";
-    currentCompositor = "hyprland";
+    currentCompositor = "niri";
     localDomain = "local";
     localhost = "0.0.0.0";
 

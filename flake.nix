@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     tofi.url = "github:darshanCommits/tofi";
     stylix.url = "github:danth/stylix/release-25.05";
 
@@ -38,10 +43,38 @@
     self,
     nixpkgs,
     stylix,
+    treefmt-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    forAllSystems = nixpkgs.lib.genAttrs [system];
+
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+
+    treefmtEval = treefmt-nix.lib.evalModule pkgs {
+      projectRootFile = "flake.nix";
+      programs.taplo = {
+        enable = true;
+        settings = {
+          formatting = {
+            array_auto_expand = false; # Don't expand arrays to multiple lines
+            array_auto_collapse = true; # Collapse arrays to single line when possible
+            inline_table_expand = false; # Don't expand inline tables
+            compact_arrays = true; # Keep arrays compact
+            compact_inline_tables = true; # Keep inline tables compact
+          };
+        };
+      };
+      programs = {
+        alejandra.enable = true;
+        jsonfmt.enable = true;
+        just.enable = true;
+        stylua.enable = true;
+        yamlfmt.enable = true;
+        prettier.enable = true;
+      };
+    };
 
     mkNixOsConfig = host: {
       inherit system;
@@ -61,7 +94,7 @@
       ];
     };
   in {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter.${system} = treefmtEval.config.build.wrapper;
     nixosConfigurations = {
       greeed = nixpkgs.lib.nixosSystem (mkNixOsConfig "greeed");
     };

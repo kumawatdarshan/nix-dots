@@ -1,122 +1,104 @@
 {
-  "mainBar": {
-    "gtk-layer-shell": true,
-    "layer": "top",
-    "position": "bottom",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "modules-left": [
-      "clock",
-      "tray"
-    ],
-    "modules-center": [
-      "niri/workspaces"
-    ],
-    "modules-right": [
-      "network",
-      "pulseaudio",
-      "battery",
-      "custom/swaync"
-    ],
-    "clock": {
-      "format": "󰅐  {:%I:%M %p}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "  {:%d/%m}"
-    },
-    "hyprland/window": {
-      "max-length": 30
-    },
-    "niri/workspaces": {
-      "format": "{icon}",
-      "on-click": "~/.config/polybar.old/ws1.sh",
-      "all-outputs": true,
-      "enable-bar-scroll": true,
-      "smooth-scrolling-threshold": 1,
-      "format-icons": {
-        "1": "一",
-        "2": "二",
-        "3": "三",
-        "4": "亖",
-        "5": "五",
-        "6": "六",
-        "7": "七",
-        "8": "八",
-        "9": "九",
-        "10": "十"
-      }
-    },
-    "custom/playerlabel": {
-      "format": "<span>{}</span>",
-      "return-type": "json",
-      "max-length": 40,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click": "playerctl play-pause",
-      "on-click-right": "playerctl next"
-    },
-    "network": {
-      "format-wifi": "  {essid}",
-      "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-      "format-linked": "{ifname} (No IP) ",
-      "format-disconnected": "󰤮 Disconnected",
-      "format-alt": "{ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-      "on-click": "swayosd-client --output-volume mute-toggle",
-      "on-scroll-up": "swayosd-client --output-volume 2 --max-volume 120",
-      "on-scroll-down": "swayosd-client --output-volume -2 --max-volume 120",
-      "scroll-step": 1,
-      "format": "{icon}  {volume}%",
-      "format-muted": "󰖁 ",
-      "format-icons": {
-        "default": [
-          "",
-          "",
-          ""
-        ]
-      }
-    },
-    "battery": {
-      "exec": "batter_warning",
-      "states": {
-        "good": 95,
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon} {capacity}%",
-      "format-charging": "󰂄 {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{time} {icon}",
-      "format-full": "󱈑 {capacity}%",
-      "format-icons": [
-        "󱊡",
-        "󱊢",
-        "󱊣"
-      ]
-    },
-    "tray": {
-      "icon-size": 18,
-      "spacing": 10
-    },
-    "custom/swaync": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "",
-        "none": "",
-        "dnd-notification": "",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='#eb6f92'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='#eb6f92'><sup></sup></span>",
-        "dnd-inhibited-none": ""
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true
-    }
-  }
+	"mainBar": {
+		"gtk-layer-shell": true,
+		"layer": "top",
+		"position": "bottom",
+		"mod": "dock",
+		"exclusive": true,
+		"passthrough": false,
+		"modules-left": ["clock", "tray"],
+		"modules-center": ["niri/workspaces"],
+		"modules-right": ["network", "pulseaudio", "battery", "custom/swaync"],
+		"clock": {
+			"format": "󰅐  {:%I:%M %p}",
+			"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+			"format-alt": "  {:%d/%m}"
+		},
+		"hyprland/window": {
+			"max-length": 30
+		},
+		"niri/workspaces": {
+			"format": "{icon}",
+			"on-click": "~/.config/polybar.old/ws1.sh",
+			"all-outputs": true,
+			"enable-bar-scroll": true,
+			"smooth-scrolling-threshold": 1,
+			"format-icons": {
+				"1": "一",
+				"2": "二",
+				"3": "三",
+				"4": "亖",
+				"5": "五",
+				"6": "六",
+				"7": "七",
+				"8": "八",
+				"9": "九",
+				"10": "十"
+			}
+		},
+		"custom/playerlabel": {
+			"format": "<span>{}</span>",
+			"return-type": "json",
+			"max-length": 40,
+			"exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+			"on-click": "playerctl play-pause",
+			"on-click-right": "playerctl next"
+		},
+		"network": {
+			"format-wifi": "  {essid}",
+			"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+			"format-linked": "{ifname} (No IP) ",
+			"format-disconnected": "󰤮 Disconnected",
+			"format-alt": "{ipaddr}/{cidr}"
+		},
+		"pulseaudio": {
+			"on-click": "swayosd-client --output-volume mute-toggle",
+			"on-scroll-up": "swayosd-client --output-volume 2 --max-volume 120",
+			"on-scroll-down": "swayosd-client --output-volume -2 --max-volume 120",
+			"scroll-step": 1,
+			"format": "{icon}  {volume}%",
+			"format-muted": "󰖁 ",
+			"format-icons": {
+				"default": ["", "", ""]
+			}
+		},
+		"battery": {
+			"exec": "batter_warning",
+			"states": {
+				"good": 95,
+				"warning": 30,
+				"critical": 15
+			},
+			"format": "{icon} {capacity}%",
+			"format-charging": "󰂄 {capacity}%",
+			"format-plugged": " {capacity}%",
+			"format-alt": "{time} {icon}",
+			"format-full": "󱈑 {capacity}%",
+			"format-icons": ["󱊡", "󱊢", "󱊣"]
+		},
+		"tray": {
+			"icon-size": 18,
+			"spacing": 10
+		},
+		"custom/swaync": {
+			"tooltip": false,
+			"format": "{icon}",
+			"format-icons": {
+				"notification": "",
+				"none": "",
+				"dnd-notification": "",
+				"dnd-none": "",
+				"inhibited-notification": "<span foreground='#eb6f92'><sup></sup></span>",
+				"inhibited-none": "",
+				"dnd-inhibited-notification": "<span foreground='#eb6f92'><sup></sup></span>",
+				"dnd-inhibited-none": ""
+			},
+			"return-type": "json",
+			"exec-if": "which swaync-client",
+			"exec": "swaync-client -swb",
+			"on-click": "swaync-client -t -sw",
+			"on-click-right": "swaync-client -d -sw",
+			"escape": true
+		}
+	}
 }

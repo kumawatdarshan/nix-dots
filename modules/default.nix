@@ -9,7 +9,6 @@
     ./shell
   ];
 
-  programs.xwayland.enable = true;
   programs.git.enable = true;
 
   boot = {

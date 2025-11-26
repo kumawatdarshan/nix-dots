@@ -93,6 +93,7 @@
       isNormalUser = true;
       description = "Darshan Kumawat";
       extraGroups = [
+        "dialout"
         "networkmanager"
         "wheel"
         "video"

@@ -1,19 +1,26 @@
-# scheme: "Dracula"
-# author: "Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)"
-base00: "0D1117" #background
-base01: "3a3c4e"
-base02: "4d4f68"
-base03: "626483"
-base04: "62d6e8"
-base05: "e9e9f4" #foreground
-base06: "f1f2f8"
-base07: "f7f7fb"
-base08: "ea51b2"
-base09: "b45bcf"
-base0A: "00f769"
-base0B: "ebff87"
-base0C: "a1efe4"
-base0D: "62d6e8"
-base0E: "b45bcf"
-base0F: "00f769"
-
+scheme: ""
+author: ""
+base00: 0D1117
+base01: 1B2431
+base02: 2D3847
+base03: 4A5568
+base04: 7A8695
+base05: C5CCD4
+base06: E6EDF3
+base07: F7F7FB
+base08: E57474
+base09: FAB387
+base0A: E5C76B
+base0B: 8CCF7E
+base0C: 77b1a5
+base0D: 66adff
+base0E: C47FD5
+base0F: F5C2E7
+# base00: 0D1117
+# base01: 161B22
+# base02: 21262D
+# base03: 484F58
+# base04: 6E7681
+# base05: BCBCBC
+# base06: E6EDF3
+# base07: F7F7FB

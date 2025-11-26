@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./web/nginx
+    ./web/nginx
     ./ai/ollama
     # ./media/immich
     ./media/navidrome

@@ -5,7 +5,6 @@
     TERMINAL = "footclient";
     VIDEO_PLAYER = "mpv";
     AUDIO_PLAYER = "mpv";
-    DIRENV_LOG_FORMAT = "";
     # QT_QPA_PLATFORM = "wayland;xcb";
     # QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     # GDK_BACKEND = "wayland,x11,*";

@@ -37,5 +37,6 @@
     # devenv
     sccache
     mold-wrapped
+    unstable.opencode
   ];
 }

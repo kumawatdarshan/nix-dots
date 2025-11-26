@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.mpv.scripts = with pkgs.mpvScripts; [
     mpris
     modernz
@@ -7,7 +11,7 @@
     sponsorblock
   ];
 
-  home.file.".config/mpv/scripts/skip-intro.lua".source = ./skip-intro.lua;
+  xdg.configFile."mpv/scripts/skip-intro.lua".source = config.lib.file.mkOutOfStoreSymlink ./skip-intro.lua;
 
   programs.mpv.enable = true;
   programs.mpv.config = {
@@ -27,6 +31,7 @@
     sub-shadow-color = "#000000";
     sub-shadow-offset = 2;
 
+    audio-samplerate = 88200; # fix for audio/video desync
     hwdec = "auto";
     vo = "gpu";
     gpu-context = "wayland";

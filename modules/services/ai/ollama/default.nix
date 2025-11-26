@@ -8,7 +8,7 @@
   ];
   services.ollama = {
     enable = true;
-    package = pkgs.ollama;
+    # package = pkgs.unstable.ollama;
     host = config.localhost;
     acceleration = "cuda";
   };

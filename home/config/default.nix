@@ -1,20 +1,11 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ./git
     ./mpv
     ./foot
     ./helix
   ];
-  home.file.".config/starship.toml".source = ./starship.toml;
-
-  home.packages = with pkgs; [
-    inputs.helix-driver.packages.${pkgs.system}.helix
-    foot
-  ];
+  xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./skip-intro.lua;
 
   programs.zoxide = {
     enable = true;

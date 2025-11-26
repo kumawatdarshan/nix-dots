@@ -1,0 +1,362 @@
+:root {
+  --bg: #0d1117;
+  --fg: #fa584f;
+
+  --text: oklch(95% 0.02 260);
+  --subtext: oklch(from var(--text) calc(l - 10%) c h);
+
+  --bg-card: oklch(from var(--bg) calc(l - 10%) c h);
+  --contrast: oklch(from var(--fg) l c calc(h + 300deg));
+  --inner-padding: 8px;
+  --border-radius: 8px;
+  --mpris-album-art-overlay: rgba(0, 0, 0, 0.45);
+  --mpris-outer-art-overlay: rgba(0, 0, 0, 0.35);
+  --mpris-album-art-icon-size: 96px;
+}
+
+* {
+  all: unset;
+  font-family: "Ubuntu Nerd Font", sans-serif;
+  font-size: 1rem;
+  transition: 100ms;
+}
+
+.control-center {
+  margin: 0.25rem;
+  padding: 1rem;
+  border-radius: 0;
+  border: 1px solid var(--fg);
+  background-color: alpha(var(--bg), 0.7);
+  /* semi-transparent white */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* optional soft border */
+
+  backdrop-filter: blur(10px);
+  /* blur the background behind */
+
+  color: var(--text);
+}
+
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-action,
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-default-action {
+  opacity: 0;
+}
+
+.control-center .control-center-list {
+  /* List of notifications */
+  background: transparent;
+}
+
+.control-center .control-center-list .notification .notification-default-action,
+.control-center .control-center-list .notification .notification-action {
+  transition:
+    opacity 400ms ease-in-out,
+    background 0.15s ease-in-out;
+}
+
+.control-center
+  .control-center-list
+  .notification
+  .notification-default-action:hover,
+.control-center .control-center-list .notification .notification-action:hover {
+  background-color: transparent;
+}
+
+.widget-title {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.widget-title button {
+  /* clear all button etc*/
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  color: var(--text);
+  background-color: var(--bg-card);
+}
+
+.widget-title button:hover {
+  background-color: var(--fg);
+}
+
+.widget-title button:active {
+  background-color: var(--contrast);
+}
+
+/* ===========================================================
+   Progress Bars
+   =========================================================== */
+progressbar,
+progress,
+trough {
+  border-radius: 0;
+}
+
+trough {
+  background-color: var(--bg-card);
+}
+
+.notification.critical progress {
+  background-color: var(--contrast);
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: var(--fg);
+}
+
+.floating-notifications .notification-row {
+  margin: 4px;
+}
+
+.notification-background {
+  padding: 1rem;
+  border: 1px solid var(--fg);
+  border-radius: 0;
+  background-color: black;
+  color: var(--text);
+}
+
+.notification-content .summary {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.notification-content .body {
+  margin: 0.125rem 0 0.5rem 0.5rem;
+  color: var(--subtext);
+}
+
+.close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0;
+  color: var(--text);
+}
+
+.close-button:hover {
+  background-color: var(--fg);
+  color: var(--text);
+}
+
+.close-button:active {
+  background-color: var(--contrast);
+  color: var(--text);
+}
+
+.notification-group {
+  /* Styling only for Grouped Notifications */
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  margin: 10px 0;
+  /* The groups close button */
+}
+
+/* .notification-group:focus { */
+/* background: var(--bg); */
+/* } */
+
+.notification-group.low {
+  /* Low Priority Group */
+}
+
+.notification-group.normal {
+  /* Low Priority Group */
+}
+
+.notification-group.critical {
+  /* Low Priority Group */
+}
+
+.notification-group .notification-group-close-button .close-button {
+  margin: 12px 20px;
+}
+
+.notification-group .notification-group-buttons,
+.notification-group .notification-group-headers {
+  margin: 0 16px;
+  color: var(--text-color);
+}
+
+.notification-group .notification-group-headers {
+  /* Notification Group Headers */
+}
+
+.notification-group .notification-group-headers .notification-group-icon {
+  color: var(--text-color);
+  -gtk-icon-size: 32px;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+  color: var(--text-color);
+}
+
+.notification-group .notification-group-buttons {
+  /* Notification Group Buttons */
+}
+
+.notification-group.collapsed {
+  /* When another group is expanded, lower the opacity of the collapsed ones */
+}
+
+.notification-group.collapsed.not-expanded {
+  opacity: 0.4;
+}
+
+.notification-group.collapsed .notification-row .notification {
+  background-color: rgba(var(--fg), 1);
+}
+
+.notification-group.collapsed .notification-row:not(:last-child) {
+  /* Top notification in stack */
+  /* Set lower stacked notifications opacity to 0 */
+}
+
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-action,
+.notification-group.collapsed
+  .notification-row:not(:last-child)
+  .notification-default-action {
+  opacity: 0;
+}
+
+/* ===========================================================
+   Do Not Disturb & Switches
+   =========================================================== */
+.control-center-dnd {
+  margin: 1rem 0;
+  border-radius: 0;
+}
+
+.control-center-dnd slider {
+  border-radius: 0;
+}
+
+.widget-dnd > switch {
+  border-radius: 0;
+  background: black;
+  padding: 0.5rem;
+}
+
+.widget-dnd > switch:checked slider {
+  background: var(--fg);
+}
+
+.widget-dnd > switch slider {
+  margin: 0.25rem;
+  border-radius: 0;
+  background: var(--contrast);
+}
+
+/* ===========================================================
+   Widget Grid
+   =========================================================== */
+.widget-buttons-grid {
+  margin-bottom: 0.25rem;
+  padding: 6px 2px;
+  border-radius: 0;
+  background: var(--bg);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 4px 10px;
+  padding: 6px 20px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: var(--bg-card);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+  background: var(--border);
+}
+
+.widget-mpris .widget-mpris-player {
+  background-color: var(--bg);
+  /* border-radius: var(--border-radius); */
+  box-shadow: var(--mpris-album-art-overlay);
+  margin: 8px;
+  padding: 8px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-background {
+  filter: blur(10px);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay {
+  padding: calc(8px * 2);
+  background-color: var(--mpris-album-art-overlay);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay button:hover {
+  color: var(--fg);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay button:active {
+  color: var(--contrast);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+  /* border-radius: 12px; */
+  box-shadow: 0px 0px 10px var(--mpris-outer-art-overlay);
+  -gtk-icon-size: var(--mpris-album-art-icon-size);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-subtitle {
+  font-size: 1.1rem;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button {
+  /* Change player control buttons */
+  padding: calc(8px / 2) 8px;
+}
+
+.widget-mpris-player img,
+.widget-mpris-player .widget-mpris-album-art {
+  /* border-radius: calc(var(--border-radius) + var(--inner-padding)); */
+  box-shadow: inherit;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.widget-mpris button,
+.widget-mpris > box > button {
+  padding: 8px;
+  border-radius: 999999px;
+}
+
+/* .widget-mpris button:hover, */
+.widget-mpris > box > button:hover {
+  border-bottom: solid 3px alpha(var(--fg), 0.7);
+  border-top: solid 3px alpha(var(--fg), 0.7);
+}
+
+/* .widget-mpris button:active, */
+.widget-mpris > box > button:active {
+  border-bottom: solid 3px alpha(var(--contrast), 0.7);
+  border-top: solid 3px alpha(var(--contrast), 0.7);
+}
+
+/* .widget-mpris button:disabled, */
+.widget-mpris > box > button:disabled {
+  color: transparent;
+}
