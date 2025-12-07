@@ -1,5 +1,5 @@
 # YOU MUST FIRST DEFINE THE CONFIG OPTIONS IN THE ./types.nix
-{...}: let
+_: let
   username = "greeed";
 in {
   config = {

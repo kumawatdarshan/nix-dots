@@ -16,7 +16,7 @@
   ];
 
   environment.systemPackages = [
-    pkgs.unstable.lact
+    pkgs.lact
   ];
 
   systemd.services.lact = {
@@ -24,42 +24,44 @@
     after = ["multi-user.target"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "${pkgs.unstable.lact}/bin/lact daemon";
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
     };
     enable = true;
   };
 
-  services.openssh.enable = true;
-  services.power-profiles-daemon.enable = false;
-  services.upower.enable = true;
+  services = {
+    openssh.enable = true;
+    power-profiles-daemon.enable = false;
+    upower.enable = true;
 
-  services.thermald.enable = true;
-  services.undervolt = {
-    enable = true;
-    coreOffset = -125;
-    turbo = 0;
-  };
-  services.tlp = {
-    enable = true;
-    settings = {
-      # disable cpu module
-      CPU_SCALING_GOVERNOR_ON_AC = "";
-      CPU_SCALING_GOVERNOR_ON_BAT = "";
-      CPU_SCALING_MIN_FREQ_ON_AC = "";
-      CPU_SCALING_MAX_FREQ_ON_AC = "";
-      CPU_SCALING_MIN_FREQ_ON_BAT = "";
-      CPU_SCALING_MAX_FREQ_ON_BAT = "";
-      CPU_BOOST_ON_AC = "";
-      CPU_BOOST_ON_BAT = "";
-      CPU_HWP_ON_AC = "";
-      CPU_HWP_ON_BAT = "";
-      CPU_HWP_DYN_BOOST_ON_AC = "";
-      CPU_HWP_DYN_BOOST_ON_BAT = "";
-      SCHED_POWERSAVE_ON_AC = "";
-      SCHED_POWERSAVE_ON_BAT = "";
+    thermald.enable = true;
+    undervolt = {
+      enable = true;
+      coreOffset = -125;
+      turbo = 0;
+    };
+    tlp = {
+      enable = true;
+      settings = {
+        # disable cpu module
+        CPU_SCALING_GOVERNOR_ON_AC = "";
+        CPU_SCALING_GOVERNOR_ON_BAT = "";
+        CPU_SCALING_MIN_FREQ_ON_AC = "";
+        CPU_SCALING_MAX_FREQ_ON_AC = "";
+        CPU_SCALING_MIN_FREQ_ON_BAT = "";
+        CPU_SCALING_MAX_FREQ_ON_BAT = "";
+        CPU_BOOST_ON_AC = "";
+        CPU_BOOST_ON_BAT = "";
+        CPU_HWP_ON_AC = "";
+        CPU_HWP_ON_BAT = "";
+        CPU_HWP_DYN_BOOST_ON_AC = "";
+        CPU_HWP_DYN_BOOST_ON_BAT = "";
+        SCHED_POWERSAVE_ON_AC = "";
+        SCHED_POWERSAVE_ON_BAT = "";
 
-      START_CHARGE_THRESH_BAT0 = 10;
-      STOP_CHARGE_THRESH_BAT0 = 85;
+        START_CHARGE_THRESH_BAT0 = 10;
+        STOP_CHARGE_THRESH_BAT0 = 85;
+      };
     };
   };
   # i mostly use tldr

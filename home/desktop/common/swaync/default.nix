@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  swaync = pkgs.unstable.swaynotificationcenter;
+  swaync = pkgs.swaynotificationcenter;
 in {
   xdg.configFile."swaync/config.json".source = config.lib.file.mkOutOfStoreSymlink ./config.json;
   xdg.configFile."swaync/style.css".source = config.lib.file.mkOutOfStoreSymlink ./style.css;

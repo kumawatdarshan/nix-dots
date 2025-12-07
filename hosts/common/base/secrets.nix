@@ -6,12 +6,13 @@
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
+  sops = {
+    defaultSopsFile = ../../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
 
-  sops.defaultSopsFile = ../../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
+    age.keyFile = "${config.homeDir}/.config/sops/age/keys.txt";
 
-  sops.age.keyFile = "${config.homeDir}/.config/sops/age/keys.txt";
-
-  sops.secrets."LastFM.ApiKey" = {};
-  sops.secrets."LastFM.Secret" = {};
+    secrets."LastFM.ApiKey" = {};
+    secrets."LastFM.Secret" = {};
+  };
 }

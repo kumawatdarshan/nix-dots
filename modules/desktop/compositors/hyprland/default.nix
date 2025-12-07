@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # imports = [
   #   ./../../services/brightness.nix
   #   ./../../services/hyprlock

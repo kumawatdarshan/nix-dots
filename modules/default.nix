@@ -31,9 +31,13 @@
 
   home-manager.backupFileExtension = "bhay-bas";
 
-  services.printing.enable = true;
-  services.tor.enable = false;
-
+  services = {
+    printing.enable = true;
+    tor.enable = false;
+    dbus = {
+      implementation = "broker";
+    };
+  };
   security.sudo.enable = true;
 
   networking.hostName = "nixos";
@@ -47,8 +51,4 @@
   ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  services.dbus = {
-    implementation = "broker";
-  };
 }
