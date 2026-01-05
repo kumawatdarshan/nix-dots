@@ -108,6 +108,8 @@
         stylua.enable = true;
         yamlfmt.enable = true;
         prettier.enable = true;
+        deadnix.enable = true;
+        statix.enable = true;
       };
     };
 

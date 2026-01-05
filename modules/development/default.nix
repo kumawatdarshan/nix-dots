@@ -11,7 +11,6 @@
     ./languages
   ];
 
-  nixpkgs.config.allowUnfree = true;
   programs.direnv = {
     enable = true;
     silent = true;
