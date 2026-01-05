@@ -21,6 +21,8 @@ in {
       "https://helix.cachix.org"
 
       "https://darshancommits.cachix.org"
+
+      "https://attic.xuyh0120.win/lantian"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -34,6 +36,8 @@ in {
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
 
       "darshancommits.cachix.org-1:aITLC4uLnoX/hHdms6Jfj60BkH9e21DxGPz/IB0YMvw="
+
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 }
