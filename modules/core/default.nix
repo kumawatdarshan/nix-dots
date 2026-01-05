@@ -3,6 +3,7 @@
     ./nix-settings
     ./pipewire
     ./bluetooth
+    ./networking
   ];
 
   programs.bat = {
@@ -16,8 +17,6 @@
       style = "plain";
     };
   };
-
-  networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
     openssl

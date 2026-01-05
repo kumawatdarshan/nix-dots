@@ -1,14 +1,12 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./../common/brightness.nix
     ./../common/portal
   ];
 
-  environment.systemPackages = [
-    pkgs.xwayland-satellite
-  ];
-
-  security.pam.services.hyprlock = {};
+  # systemd.user.services.dms = {
+  #   wantedBy = ["niri.service"];
+  # };
 
   programs.niri = {
     enable = true;

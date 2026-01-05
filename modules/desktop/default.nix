@@ -13,6 +13,7 @@
     ./apps/documents
     ./apps/media
     ./apps/messaging
+    ./apps/flatpak
 
     ./apps/misc/kdeconnect
     ./apps/misc/tofi
@@ -20,7 +21,7 @@
     ./fonts
 
     ./services/keyd
-    ./services/goldwarden
+    # ./services/goldwarden
   ];
 
   environment.systemPackages = with pkgs; [

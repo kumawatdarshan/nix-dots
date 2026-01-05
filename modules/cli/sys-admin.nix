@@ -4,7 +4,6 @@
     dig # DNS lookup
 
     # Hardware information
-    glxinfo # OpenGL information
     pciutils # PCI utilities (lspci)
     usbutils # USB utilities (lsusb)
 

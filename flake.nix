@@ -5,6 +5,37 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+
+    cursor = {
+      url = "github:tomsch/cursor-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    floorp = {
+      url = "github:fyukmdaa/floorp-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dms-plugins = {
+      url = "github:AvengeMedia/dms-plugins";
+      flake = false;
+    };
+
+    dankCalculator = {
+      url = "github:rochacbruno/DankCalculator";
+      flake = false;
+    };
+
+    dms-emoji-launcher = {
+      url = "github:devnullvoid/dms-emoji-launcher";
+      flake = false;
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +47,11 @@
     };
 
     tofi.url = "github:darshanCommits/tofi";
-    stylix.url = "github:danth/stylix/release-25.05";
+
+    stylix = {
+      url = "github:danth/stylix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -27,7 +62,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

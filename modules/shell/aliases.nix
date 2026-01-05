@@ -30,7 +30,7 @@ in {
     // {
       rg = "rga";
       pdf = "zathura";
-      btm = "btm --battery --enable_gpu --tree --expanded";
+      btm = "btm --battery --expanded -g";
       heroic = "heroic --enable-features=WaylandWindowDecorations --enable-features=UseOzonePlatform --ozone-platform=wayland";
       brave = "brave --enable-features=TouchpadOverscrollHistoryNavigation,UseOzonePlatform --ozone-platform=wayland";
       vivaldi = "vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet6";

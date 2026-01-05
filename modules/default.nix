@@ -41,7 +41,6 @@
   security.sudo.enable = true;
 
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Kolkata";
 

@@ -10,6 +10,6 @@
     "helix/themes/mist.toml".source = config.lib.file.mkOutOfStoreSymlink ./themes/mist.toml;
   };
   home.packages = [
-    inputs.helix-driver.packages.${pkgs.system}.helix
+    inputs.helix-driver.packages.${pkgs.stdenv.hostPlatform.system}.helix
   ];
 }

@@ -20,5 +20,8 @@
     tesseract # OCR engine
     poppler # PDF utilities
     webp-pixbuf-loader # WebP image support
+
+    beets
+    chromaprint
   ];
 }

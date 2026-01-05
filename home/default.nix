@@ -9,7 +9,7 @@
 
   # REFER: @/modules/dewm/wl-clipboard
   services.cliphist.enable = true;
-  services.easyeffects.enable = true;
+  # services.easyeffects.enable = true;
 
   qt.enable = true;
   gtk.enable = true;

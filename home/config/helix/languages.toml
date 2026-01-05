@@ -6,11 +6,6 @@
 command = "biome"
 args = ["lsp-proxy"]
 
-[language-server.deno-lsp]
-command = "deno"
-args = ["lsp"]
-config.deno.enable = true
-
 [language-server.emmet]
 command = "emmet-language-server"
 args = ["--stdio"]
@@ -69,23 +64,23 @@ language-servers = ["vscode-html-language-server", "tailwindcss-ls", "emmet"]
 name = "javascript"
 auto-format = true
 roots = ["deno.json", "deno.jsonc", "package.json"]
-language-servers = ["deno-lsp", "biome", {name = "typescript-language-server", except-features = ["format"]}]
+language-servers = [ "biome", {name = "typescript-language-server", except-features = ["format"]}]
 
 [[language]]
 name = "typescript"
 auto-format = true
 roots = ["deno.json", "deno.jsonc", "package.json"]
-language-servers = ["deno-lsp", "biome", {name = "typescript-language-server", except-features = ["format"]}]
+language-servers = [ "biome", {name = "typescript-language-server", except-features = ["format"]}]
 
 [[language]]
 name = "jsx"
 auto-format = true
-language-servers = ["deno-lsp", "biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
+language-servers = ["biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
 
 [[language]]
 name = "tsx"
 auto-format = true
-language-servers = ["deno-lsp", "biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
+language-servers = [ "biome", "tailwindcss-ls", "emmet", {name = "typescript-language-server", except-features = ["format"]}]
 
 # -----------------------------------------------------------------------------
 # JSON
@@ -108,7 +103,7 @@ soft-wrap.enable = true
 name = "nix"
 auto-format = true
 language-servers = ["nixd"]
-formatter = {command = "/nix/store/nm8j5b2ljgsd97idxh472dknan0g3rc5-alejandra-4.0.0/bin/alejandra", args = ["-q"]}
+formatter = {command = "alejandra", args = ["-q"]}
 
 # -----------------------------------------------------------------------------
 # Rust

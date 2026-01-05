@@ -12,6 +12,7 @@
   ];
 
   xdg.configFile."mpv/scripts/skip-intro.lua".source = config.lib.file.mkOutOfStoreSymlink ./skip-intro.lua;
+  xdg.configFile."mpv/scripts/ytsub.lua".source = config.lib.file.mkOutOfStoreSymlink ./ytsub.lua;
 
   programs.mpv = {
     enable = true;
