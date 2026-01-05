@@ -4,8 +4,12 @@
   pkgs,
   ...
 }: {
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.default
+  ];
+
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     extraModulePackages = with config.boot.kernelPackages; [lenovo-legion-module];
@@ -22,6 +26,6 @@
   };
   services.scx = {
     enable = true;
-    scheduler = "scx_rusty";
+    scheduler = "scx_lavd";
   };
 }

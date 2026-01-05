@@ -14,6 +14,23 @@
     ./../common/nvidia
     ./../../modules
   ];
+  # should help with RA OOM crashes
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+  };
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 100;
+    priority = 100;
+  };
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 150;
+    "vm.watermark_boost_factor" = 0;
+    "vm.watermark_scale_factor" = 125;
+    "vm.page-cluster" = 0;
+  };
 
   environment.systemPackages = [
     pkgs.lact

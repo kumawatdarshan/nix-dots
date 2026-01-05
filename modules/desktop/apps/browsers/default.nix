@@ -3,12 +3,12 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.floorp.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #   inputs.floorp.overlays.default
+  # ];
 
   environment.systemPackages = with pkgs; [
-    floorp-bin
+    # floorp-bin
     vivaldi
     vivaldi-ffmpeg-codecs
     brave
