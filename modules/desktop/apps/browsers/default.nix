@@ -12,5 +12,6 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     brave
+    anydesk
   ];
 }

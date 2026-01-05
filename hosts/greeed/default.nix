@@ -32,6 +32,8 @@
     "vm.page-cluster" = 0;
   };
 
+  services.fwupd.enable = true;
+
   environment.systemPackages = [
     pkgs.lact
   ];

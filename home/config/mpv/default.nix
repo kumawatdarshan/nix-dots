@@ -53,4 +53,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    mpv-handler
+  ];
 }

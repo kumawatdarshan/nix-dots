@@ -1,48 +1,29 @@
-{pkgs, ...}: let
-  quantum = 256;
-  minQuantum = 64;
-  maxQuantum = 512;
-  clockRate = 48000;
-  fracString = num: denom: "${toString num}/${toString denom}";
-in {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     pavucontrol
   ];
 
-  # make pipewire realtime-capable
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true;
     pulse.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    jack.enable = true;
 
-    wireplumber.enable = true;
-
-    extraConfig = {
-      pipewire."92-low-latency" = {
-        "context.properties" = {
-          "default.clock.rate" = clockRate;
-          "default.clock.quantum" = quantum;
-          "default.clock.min-quantum" = minQuantum;
-          "default.clock.max-quantum" = maxQuantum;
-        };
-      };
-
-      pipewire-pulse."92-low-latency" = {
-        "pulse.properties" = {
-          "pulse.default.req" = fracString quantum clockRate;
-          "pulse.min.req" = fracString minQuantum clockRate;
-          "pulse.max.req" = fracString maxQuantum clockRate;
-          "pulse.min.quantum" = fracString minQuantum clockRate;
-          "pulse.max.quantum" = fracString maxQuantum clockRate;
-        };
-        "stream.properties" = {
-          "node.latency" = fracString minQuantum clockRate;
-          "resample.quality" = 8;
-        };
+    # Force consistent buffer size
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 1024;
+        "default.clock.min-quantum" = 1024;
       };
     };
   };
+
+  # Disable power saving for Intel HDA
+  boot.kernelParams = [
+    "snd_hda_intel.power_save=0"
+  ];
 }

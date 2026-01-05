@@ -70,7 +70,7 @@
     };
 
     helix-driver = {
-      url = "github:darshanCommits/helix/driver";
+      url = "github:darshanCommits/helix/driver-fork";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };

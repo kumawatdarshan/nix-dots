@@ -1,5 +1,7 @@
 theme = "mist"
+
 [editor]
+rounded-corners = true
 color-modes = true
 completion-trigger-len = 1
 line-number = "relative"
@@ -7,14 +9,20 @@ mouse = false
 popup-border = "all"
 rainbow-brackets = true
 shell = ["sh", "-c"]
+auto-reload = true
+inline-blame = { show = "cursor-line", format = "{author} • {time-ago} • {title}", auto-fetch = false }
+
 [editor.auto-save]
 focus-lost = true
+
 [editor.auto-save.after-delay]
 enable = true
 
 [editor.bufferline]
+show-icons = true
 context = "minimal"
 show = "always"
+separator = ""
 
 [editor.cursor-shape]
 insert = "bar"
@@ -30,11 +38,12 @@ cursor-line = "hint"
 other-lines = "disable"
 
 [editor.lsp]
+display-color-swatches = true
 display-inlay-hints = true
 display-messages = true
 
 [editor.statusline]
-center = ["diagnostics", "workspace-diagnostics"]
+center = ["diagnostics","function-name", "workspace-diagnostics"]
 left = ["mode", "spinner", "total-line-numbers", "file-encoding"]
 right = ["position", "position-percentage", "spacer", "separator", "spacer", "version-control"]
 
@@ -66,9 +75,37 @@ home = "increment"
 ret = "@]<space>j"
 
 [keys.normal.space]
+#scooter
+m = [
+  ":write-all",
+  ":insert-output scooter >/dev/tty",
+  ":redraw",
+  ":reload-all"
+]
 E = [":sh rm -f /tmp/unique-file", ":insert-output yazi --chooser-file=/tmp/unique-file", ":insert-output echo \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty", ":open %sh{cat /tmp/unique-file}", ":redraw"]
 e = [":sh rm -f /tmp/unique-file", ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file", ":insert-output echo \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty", ":open %sh{cat /tmp/unique-file}", ":redraw"]
 q = ":q"
 
 [keys.select]
 X = "extend_line_above"
+
+[icons.vcs]
+enabled = true
+icon = ""
+
+[icons.mime]
+enabled = true
+directory = "🖿"
+rust = "🦀"
+python = "🐍"
+go = ""
+json = ""
+
+[icons.kind]
+enabled = true
+
+[editor.file-picker]
+hide-preview = true
+
+[editor.file-picker]
+hide-preview = true
