@@ -2,6 +2,15 @@
 # LANGUAGE SERVERS CONFIGURATION
 # =============================================================================
 
+global-language-servers = ["hx-lsp"] 
+
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]
+
+[language-server.hx-lsp]
+command = "hx-lsp"
+
 [language-server.biome]
 command = "biome"
 args = ["lsp-proxy"]
@@ -94,6 +103,7 @@ language-servers = ["biome", {name = "vscode-json-language-server", except-featu
 # -----------------------------------------------------------------------------
 [[language]]
 name = "markdown"
+language-servers = ["markdown-oxide", "codebook"]
 soft-wrap.enable = true
 
 # -----------------------------------------------------------------------------
@@ -111,3 +121,4 @@ formatter = {command = "alejandra", args = ["-q"]}
 [[language]]
 name = "rust"
 auto-format = true
+language-servers = ["rust-analyzer", "codebook"]

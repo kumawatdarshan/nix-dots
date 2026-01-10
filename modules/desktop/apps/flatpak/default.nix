@@ -7,7 +7,7 @@
     inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
-  services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.uninstallUnmanaged = false;
   services.flatpak.enable = true;
   services.flatpak.remotes = lib.mkOptionDefault [
     {
@@ -17,10 +17,6 @@
   ];
 
   services.flatpak.packages = [
-    {
-      appId = "com.stremio.Stremio";
-      origin = "flathub-beta";
-    }
     {
       appId = "com.stremio.Service";
       origin = "flathub";
