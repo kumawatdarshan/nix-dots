@@ -51,14 +51,11 @@
   services = {
     openssh.enable = true;
     power-profiles-daemon.enable = false;
+    # services.tuned.enable = true;
     upower.enable = true;
 
+    auto-cpufreq.enable = true;
     thermald.enable = true;
-    # undervolt = {
-    #   enable = true;
-    #   coreOffset = -125;
-    #   turbo = 0;
-    # };
   };
   # i mostly use tldr
   documentation = {

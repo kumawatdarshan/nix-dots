@@ -38,7 +38,6 @@
   environment.systemPackages = with pkgs; [
     # editors
     vim
-    inputs.cursor.packages.x86_64-linux.default
     windsurf
 
     # Version control and Git tools

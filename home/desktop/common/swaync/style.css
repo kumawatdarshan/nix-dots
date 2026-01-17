@@ -39,12 +39,8 @@
   color: var(--text);
 }
 
-.notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-action,
-.notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-default-action {
+.notification-group.collapsed .notification-row:not(:last-child) .notification-action,
+.notification-group.collapsed .notification-row:not(:last-child) .notification-default-action {
   opacity: 0;
 }
 
@@ -60,10 +56,7 @@
     background 0.15s ease-in-out;
 }
 
-.control-center
-  .control-center-list
-  .notification
-  .notification-default-action:hover,
+.control-center .control-center-list .notification .notification-default-action:hover,
 .control-center .control-center-list .notification .notification-action:hover {
   background-color: transparent;
 }
@@ -218,12 +211,8 @@ trough {
   /* Set lower stacked notifications opacity to 0 */
 }
 
-.notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-action,
-.notification-group.collapsed
-  .notification-row:not(:last-child)
-  .notification-default-action {
+.notification-group.collapsed .notification-row:not(:last-child) .notification-action,
+.notification-group.collapsed .notification-row:not(:last-child) .notification-default-action {
   opacity: 0;
 }
 
@@ -239,17 +228,17 @@ trough {
   border-radius: 0;
 }
 
-.widget-dnd > switch {
+.widget-dnd>switch {
   border-radius: 0;
   background: black;
   padding: 0.5rem;
 }
 
-.widget-dnd > switch:checked slider {
+.widget-dnd>switch:checked slider {
   background: var(--fg);
 }
 
-.widget-dnd > switch slider {
+.widget-dnd>switch slider {
   margin: 0.25rem;
   border-radius: 0;
   background: var(--contrast);
@@ -265,7 +254,7 @@ trough {
   background: var(--bg);
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button {
+.widget-buttons-grid>flowbox>flowboxchild>button {
   margin: 4px 10px;
   padding: 6px 20px;
   border-radius: 0;
@@ -273,11 +262,11 @@ trough {
   color: var(--text);
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
   background: var(--bg-card);
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:active {
+.widget-buttons-grid>flowbox>flowboxchild>button:active {
   background: var(--border);
 }
 
@@ -321,7 +310,7 @@ trough {
   font-size: 1.1rem;
 }
 
-.widget-mpris .widget-mpris-player .mpris-overlay > box > button {
+.widget-mpris .widget-mpris-player .mpris-overlay>box>button {
   /* Change player control buttons */
   padding: calc(8px / 2) 8px;
 }
@@ -339,24 +328,24 @@ trough {
 }
 
 .widget-mpris button,
-.widget-mpris > box > button {
+.widget-mpris>box>button {
   padding: 8px;
   border-radius: 999999px;
 }
 
 /* .widget-mpris button:hover, */
-.widget-mpris > box > button:hover {
+.widget-mpris>box>button:hover {
   border-bottom: solid 3px alpha(var(--fg), 0.7);
   border-top: solid 3px alpha(var(--fg), 0.7);
 }
 
 /* .widget-mpris button:active, */
-.widget-mpris > box > button:active {
+.widget-mpris>box>button:active {
   border-bottom: solid 3px alpha(var(--contrast), 0.7);
   border-top: solid 3px alpha(var(--contrast), 0.7);
 }
 
 /* .widget-mpris button:disabled, */
-.widget-mpris > box > button:disabled {
+.widget-mpris>box>button:disabled {
   color: transparent;
 }

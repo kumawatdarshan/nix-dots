@@ -2,7 +2,7 @@
   imports = [
     ./web/nginx
     # ./ai/ollama
-    # ./media/immich
+    ./media/immich
     ./media/navidrome
   ];
 }

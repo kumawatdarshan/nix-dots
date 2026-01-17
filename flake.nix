@@ -6,14 +6,6 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
-    nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel/release";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-    cursor = {
-      url = "github:tomsch/cursor-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     floorp = {
       url = "github:fyukmdaa/floorp-flake";

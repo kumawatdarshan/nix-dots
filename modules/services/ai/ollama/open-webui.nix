@@ -5,7 +5,7 @@
 }: {
   services.open-webui = {
     enable = true;
-    # package = pkgs.unstable.open-webui;
+    package = pkgs.unstable.open-webui;
     host = config.localhost;
     port = config.port.llmUi;
     openFirewall = false;
